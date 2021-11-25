@@ -23,18 +23,18 @@ class Solution:
             num2 = target - nums[i]
             if num2 in dic:
                 return [dic[num2], i]
-            if num[i] not in dic:            
-                dic[num[i]] = i
+            if nums[i] not in dic:            
+                dic[nums[i]] = i
          
         return []
     
 
 '''
 Solution - Naive:
-1. Go through the nums list - ith number: num[i]
+1. Go through the nums list - ith number: nums[i]
 2. Find if there is a number
-that can make the target when added up with num[i]
-in the rest of the list, which is target-num[i]: num2.
+that can make the target when added up with nums[i]
+in the rest of the list, which is target-nums[i]: num2.
 3. If there is, find the index of num2 in the rest of the list, and return it with the index i.
 * Cannot do nums.index(num2) in case there are duplicates.
 However, nums[i+1].index(num2) returns the new index,
@@ -47,12 +47,12 @@ The space complexity is O(n+I) = O(n).
 
 Solution - Hash:
 1. Create a dictionary(=Hash Table): dic.
-2. Go through the nums list - ith number: num[i]
+2. Go through the nums list - ith number: nums[i]
 3. Find if the number
-that can make the target, which is target-num[i]: num2,
+that can make the target, which is target-nums[i]: num2,
 in the dic.
 4. If there is, return the value of the dic with the key - num2(dic[num2]), and the index i. 
-5. If there isn't, save the (num[i]: i) key-value pair to the dic.
+5. If there isn't, save the (nums[i]: i) key-value pair to the dic.
 *As going through the nums list, the dic functions to remember the numbers in the past as well as the indices of the numbers. 
 *In case there are duplicates, the dic only holds the first index as the value for a given number. 
 
